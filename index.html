@@ -394,6 +394,10 @@ h2{
 .case-part.w b{color:var(--blue)}
 .case-part.r{border-left:4px solid var(--green);background:var(--mint)}
 .case-part.r b{color:var(--green)}
+.checks{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.chip{display:inline-flex;align-items:center;padding:10px 14px;border:1px solid var(--ink);border-radius:999px;background:var(--paper);font-size:14px;font-weight:850;cursor:pointer;user-select:none}
+.chip:hover{background:var(--yellow)}
+.chip.active{background:var(--ink);color:#fff}
 .footer{
   padding:44px 0;
   background:#111;
@@ -443,6 +447,7 @@ h2{
   </a>
   <nav class="nav" aria-label="Навигация">
     <a href="#idea">Идея</a>
+    <a href="#check">Проверка</a>
     <a href="#client">Кому слать</a>
     <a href="#etymology">Этимология</a>
     <a href="#cases">Кейсы</a>
@@ -458,7 +463,7 @@ h2{
       <h1>Устали от <span class="red">долбоёбов</span>?</h1>
       <p class="lead">Хотите взаимодействовать <strong>только с нормальными людьми</strong>? Не воюйте напрямую — пропустите сложного человека через AI-фильтр, шаблон и медиатора.</p>
       <div class="cta-row">
-        <a class="btn safe" href="#intake">Да</a>
+        <a class="btn safe" href="#check">Да</a>
         <a class="btn secondary" href="#how">Как это работает</a>
       </div>
       <p class="small" style="margin-top:14px;max-width:560px">Нормальным людям — прямой доступ. Сложным — нейтральный процесс и ссылка <a href="http://mediator.vdai.me/" style="text-decoration:underline">mediator.vdai.me</a>.</p>
@@ -478,6 +483,57 @@ h2{
           </div>
           <div class="message good">Результат: прямой доступ к вам получает только нормальная коммуникация.</div>
           <div class="message blue">Публично отправляем не этот мем-сайт, а аккуратную страницу VDAI.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="check">
+    <div class="wrap">
+      <div class="section-top">
+        <div>
+          <div class="label">Услуга</div>
+          <h2>Проверка на долбоёба</h2>
+        </div>
+        <p class="section-note">Первое касание с незнакомым человеком? Не хотите тратить время на шаблоны и долгую переписку. Опишите задачу — получите нейтральную ссылку. Человек переходит, проходит короткий сценарий, и сразу видно: адекват или долбоёб.</p>
+      </div>
+
+      <p class="small" style="margin-bottom:10px">Выберите ситуацию (или впишите свою) — соберём ссылку и текст, который не стыдно отправить:</p>
+      <div class="checks" id="checkChips">
+        <span class="chip" data-c="Сантехник">Сантехник</span>
+        <span class="chip" data-c="Репетитор">Репетитор</span>
+        <span class="chip" data-c="Что-то сделать">Что-то сделать</span>
+        <span class="chip" data-c="Отвезти">Отвезти</span>
+        <span class="chip" data-c="Помочь">Помочь</span>
+        <span class="chip" data-c="Одолжить машину">Одолжить машину</span>
+        <span class="chip" data-c="Аренда жилья">Аренда жилья</span>
+        <span class="chip" data-c="Совместная покупка">Совместная покупка</span>
+        <span class="chip" data-c="Любая ситуация">Любая ситуация</span>
+      </div>
+
+      <div class="split" style="margin-top:20px">
+        <div class="statement">
+          <p><strong>Как работает проверка:</strong></p>
+          <div class="flow" style="margin-top:10px">
+            <div class="flow-step"><span class="num">1</span><span>Выбираете ситуацию и в двух словах описываете задачу.</span></div>
+            <div class="flow-step"><span class="num">2</span><span>Получаете нейтральную ссылку и готовый текст для отправки.</span></div>
+            <div class="flow-step"><span class="num">3</span><span>Человек переходит, отвечает на короткий сценарий — AI отделяет адекватных от долбоёбов и подсвечивает красные флаги.</span></div>
+          </div>
+          <p class="quote" style="border-left-color:var(--yellow)">Ссылка нейтральная (без мата) — её не стыдно отправить кому угодно.</p>
+        </div>
+        <div class="client-box">
+          <form class="form" onsubmit="return false">
+            <label for="checkCat">Ситуация</label>
+            <input id="checkCat" placeholder="Например: Аренда жилья">
+            <label for="checkDesc">Задача в двух словах</label>
+            <textarea id="checkDesc" placeholder="Что нужно, сроки, бюджет, что важно"></textarea>
+            <button class="btn safe" type="button" onclick="composeCheck()">Сгенерировать ссылку</button>
+            <div class="copy-result" id="checkResult">Здесь появятся нейтральная ссылка и текст для отправки.</div>
+            <div class="cta-row">
+              <button class="btn secondary" type="button" onclick="copyCheck()">Скопировать</button>
+              <a class="btn" id="checkTg" href="https://t.me/vdavc_bot?start=check" target="_blank" rel="noopener">Через Telegram</a>
+            </div>
+          </form>
         </div>
       </div>
     </div>
@@ -773,6 +829,39 @@ async function copyCase(){
     document.getElementById('caseResult').textContent = text + '\n\nСкопировано.';
   }catch(e){
     document.getElementById('caseResult').textContent = text + '\n\nСкопируйте вручную.';
+  }
+}
+(function(){
+  var chips = document.getElementById('checkChips');
+  if(!chips) return;
+  chips.addEventListener('click', function(e){
+    var c = e.target.closest('.chip');
+    if(!c) return;
+    chips.querySelectorAll('.chip').forEach(function(x){ x.classList.remove('active'); });
+    c.classList.add('active');
+    document.getElementById('checkCat').value = c.getAttribute('data-c');
+  });
+})();
+function composeCheck(){
+  var cat = document.getElementById('checkCat').value.trim() || 'ситуация';
+  var desc = document.getElementById('checkDesc').value.trim();
+  var link = 'https://mediator.vdai.me/?case=' + encodeURIComponent(cat);
+  var msg = [
+    'Привет! Прежде чем договариваться (' + cat + '), давай за минуту сверим ожидания — чтобы не тратить время зря у обоих.',
+    desc ? ('Вкратце: ' + desc) : '',
+    'Опиши детали здесь: ' + link
+  ].filter(Boolean).join('\n');
+  document.getElementById('checkResult').textContent = msg;
+  var tg = document.getElementById('checkTg');
+  if(tg) tg.href = 'https://t.me/vdavc_bot?start=check_' + encodeURIComponent(cat.toLowerCase().replace(/\s+/g,'_'));
+}
+async function copyCheck(){
+  var text = document.getElementById('checkResult').textContent;
+  try{
+    await navigator.clipboard.writeText(text);
+    document.getElementById('checkResult').textContent = text + '\n\nСкопировано.';
+  }catch(e){
+    document.getElementById('checkResult').textContent = text + '\n\nСкопируйте вручную.';
   }
 }
 </script>
