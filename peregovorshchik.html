@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Переговорщик — договоримся по правилам</title>
+<meta name="description" content="Сложные переговоры и сделки? Прописываем правила на входе — и до 95% проблем не возникает. Нейтральный помощник и медиатор.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#f7f8fa;--paper:#fff;--ink:#16181d;--mut:#5c636e;--line:#e2e6ec;--accent:#1f6feb;--ok:#0f7b5f;--gold:#b7791f}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{min-width:300px;overflow-x:hidden;background:var(--bg);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;font-size:16px;line-height:1.55}
+img,table{max-width:100%}a{color:inherit}
+.wrap{width:min(880px,calc(100% - 32px));margin:0 auto}
+.bar{position:sticky;top:0;z-index:9;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:56px;padding:0 16px;background:rgba(247,248,250,.95);border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}
+.brand{font-weight:900;text-decoration:none;font-size:15px}
+.bar a.alt{font-size:13px;color:var(--mut);text-decoration:none}
+section{padding:clamp(40px,8vw,70px) 0;border-bottom:1px solid var(--line)}
+h1{font-size:clamp(32px,7vw,60px);line-height:1.02;letter-spacing:-.5px}
+h1 .a{color:var(--accent)}
+h2{font-size:clamp(24px,5.5vw,40px);line-height:1.05;margin-bottom:14px}
+.lead{font-size:clamp(17px,2.4vw,22px);color:#2a2e36;margin-top:20px;max-width:660px}
+.lead strong{font-weight:800}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.btn{min-height:50px;display:inline-flex;align-items:center;justify-content:center;text-align:center;padding:0 20px;border:1px solid var(--ink);border-radius:10px;background:var(--ink);color:#fff;font-size:14px;font-weight:800;text-decoration:none}
+.btn.accent{background:var(--accent);border-color:var(--accent)}
+.btn.secondary{background:var(--paper);color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:8px}
+.card{padding:18px;border:1px solid var(--line);border-radius:12px;background:var(--paper)}
+.card h3{font-size:18px;margin-bottom:8px}.card p{color:#3a3f48;font-size:15px}
+.steps{display:grid;gap:10px;margin-top:8px}
+.step{display:flex;gap:12px;align-items:flex-start;padding:14px;border:1px solid var(--line);border-radius:10px;background:var(--paper)}
+.step .n{flex:0 0 auto;width:28px;height:28px;display:grid;place-items:center;border-radius:8px;background:var(--accent);color:#fff;font-weight:800;font-size:13px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.tag{padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:var(--paper);font-size:13px;font-weight:700}
+.foot{padding:34px 0;color:var(--mut);font-size:14px}
+@media(max-width:740px){.grid{grid-template-columns:1fr}.cta-row{display:grid}.btn{width:100%}}
+</style>
+</head>
+<body>
+<header class="bar">
+  <a class="brand" href="#top">Переговорщик</a>
+  <a class="alt" href="https://mediator.vdai.me/">mediator.vdai.me →</a>
+</header>
+<main id="top">
+  <section>
+    <div class="wrap">
+      <h1>Сложные переговоры?<br><span class="a">Договоримся по правилам.</span></h1>
+      <p class="lead">На словах все хорошие. Ломается на расчёте, сроках и обещаниях. Мы помогаем <strong>прописать правила на входе</strong> — и до 95% проблем просто не возникает.</p>
+      <div class="cta-row">
+        <a class="btn accent" href="#kak">Описать ситуацию</a>
+        <a class="btn secondary" href="https://mediator.vdai.me/">Нейтральная страница</a>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="wrap">
+      <h2>Где обычно ломается</h2>
+      <div class="grid">
+        <div class="card"><h3>На словах</h3><p>Все адекватные, всё «без проблем».</p></div>
+        <div class="card"><h3>На деле</h3><p>Сроки, оплата, качество, форс-мажор — и договорённости вдруг плывут.</p></div>
+        <div class="card"><h3>Спор</h3><p>Решать в лоб — долго и дорого. Нужен нейтральный третий и понятные правила.</p></div>
+      </div>
+      <p class="lead" style="margin-top:18px">Как Uber убрал торг и хаос правилами до поездки — мы делаем то же для любой сделки между людьми.</p>
+      <p class="tags"><span class="tag">Время</span><span class="tag">Оплата</span><span class="tag">Гарантии</span><span class="tag">Рейтинг</span><span class="tag">Прозрачная цена</span><span class="tag">Форс-мажор</span></p>
+    </div>
+  </section>
+  <section id="kak">
+    <div class="wrap">
+      <h2>Как это работает</h2>
+      <div class="steps">
+        <div class="step"><span class="n">1</span><p><strong>Опишите ситуацию.</strong> Подсветим, где обычно камни и что обсудить заранее.</p></div>
+        <div class="step"><span class="n">2</span><p><strong>Получите правила и шаблон.</strong> Время, оплата, гарантии, что если форс-мажор — на входе, до денег и обещаний.</p></div>
+        <div class="step"><span class="n">3</span><p><strong>Отправьте нейтрально.</strong> Второй стороне — приличная ссылка, без давления. Если нужно — подключаем живого медиатора.</p></div>
+      </div>
+      <div class="cta-row">
+        <a class="btn accent" href="https://t.me/vdavc_bot?start=mediator" target="_blank" rel="noopener">Начать в Telegram</a>
+        <a class="btn secondary" href="https://mediator.vdai.me/">Открыть медиатор</a>
+      </div>
+    </div>
+  </section>
+  <footer class="foot">
+    <div class="wrap">
+      Ещё наши проекты: <a href="/">dolboebam.net</a> · <a href="/pizdezh.html">Пиздёж Инкорпорейтед</a> · <a href="https://mediator.vdai.me/">mediator.vdai.me</a>
+    </div>
+  </footer>
+</main>
+</body>
+</html>

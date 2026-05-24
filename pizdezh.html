@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Пиздёж Инкорпорейтед™ — проекты против маразма</title>
+<meta name="description" content="Холдинг народных проектов против долбоёбов и маразма. Голосуй за следующий, предложи идею, поддержи.">
+<meta name="robots" content="noindex">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#f6f2e9;--paper:#fffdf8;--ink:#111;--mut:#5f625d;--line:#d8d1c4;--red:#e6402f;--green:#08785f;--yellow:#f0c84b}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{min-width:300px;overflow-x:hidden;background:var(--bg);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;font-size:16px;line-height:1.55}
+img,table{max-width:100%}a{color:inherit}
+.wrap{width:min(880px,calc(100% - 32px));margin:0 auto}
+.bar{position:sticky;top:0;z-index:9;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:56px;padding:0 16px;background:rgba(246,242,233,.95);border-bottom:1px solid var(--ink);backdrop-filter:blur(10px)}
+.brand{font-weight:950;text-transform:uppercase;text-decoration:none;font-size:14px}
+.bar a.alt{font-size:13px;color:var(--mut);text-decoration:none}
+section{padding:clamp(38px,7vw,64px) 0;border-bottom:1px solid var(--line)}
+.kicker{display:inline-block;padding:7px 11px;border:1px solid var(--ink);background:var(--yellow);border-radius:8px;font-size:12px;font-weight:950;text-transform:uppercase;margin-bottom:16px}
+h1{font-size:clamp(30px,7vw,58px);line-height:1;text-transform:uppercase;overflow-wrap:anywhere}
+h1 .red{color:var(--red)}
+h2{font-size:clamp(24px,5.5vw,40px);line-height:1.04;text-transform:uppercase;margin-bottom:14px}
+.lead{font-size:clamp(17px,2.3vw,21px);color:#2a2e36;margin-top:18px;max-width:640px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:8px}
+.card{padding:18px;border:1px solid var(--line);border-radius:10px;background:var(--paper)}
+.card.live{border-color:var(--green);border-left:5px solid var(--green)}
+.card h3{font-size:19px;margin-bottom:6px}.card p{color:#343630;font-size:15px}
+.card a{display:inline-block;margin-top:10px;font-weight:800;color:var(--green);text-decoration:underline}
+.badge{font-size:11px;font-weight:900;text-transform:uppercase;color:var(--mut)}
+.checks{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.chip{padding:10px 14px;border:1px solid var(--ink);border-radius:999px;background:var(--paper);font-size:14px;font-weight:850;text-decoration:none}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.btn{min-height:50px;display:inline-flex;align-items:center;justify-content:center;text-align:center;padding:0 18px;border:1px solid var(--ink);border-radius:8px;background:var(--ink);color:#fff;font-size:13px;font-weight:950;text-transform:uppercase;text-decoration:none}
+.btn.safe{background:var(--green)}
+.foot{padding:34px 0;color:var(--mut);font-size:14px}
+@media(max-width:740px){.grid{grid-template-columns:1fr}.cta-row{display:grid}.btn{width:100%}}
+</style>
+</head>
+<body>
+<main id="top">
+<header class="bar">
+  <a class="brand" href="#top">Пиздёж Инкорпорейтед™</a>
+  <a class="alt" href="/">dolboebam.net →</a>
+</header>
+  <section>
+    <div class="wrap">
+      <div class="kicker">Холдинг народных проектов</div>
+      <h1>Коллективным мозгом <span class="red">против маразма</span></h1>
+      <p class="lead">Маразм крепчает быстрее, чем мы успеваем. Собираем живые кейсы и строим инструменты против долбоёбов. Голосуй за следующий, предложи свой, поддержи.</p>
+    </div>
+  </section>
+  <section>
+    <div class="wrap">
+      <h2>Проекты</h2>
+      <div class="grid">
+        <div class="card live"><span class="badge">🟢 Live</span><h3>Долбоёбам — нет</h3><p>Проверка человека до сделки + правила на входе.</p><a href="/">Открыть →</a></div>
+        <div class="card live"><span class="badge">🟢 Live</span><h3>Переговорщик</h3><p>Нейтральная версия для клиентов и серьёзных переговоров.</p><a href="/peregovorshchik.html">Открыть →</a></div>
+        <div class="card live"><span class="badge">🟢 Live</span><h3>Медиатор</h3><p>Цивильная витрина — её не стыдно отправить кому угодно.</p><a href="https://mediator.vdai.me/">Открыть →</a></div>
+        <div class="card"><span class="badge">🗳 В очереди</span><h3>Реестр долбоёбов</h3><p>Коллективная база поведения (без имён) с доказательствами.</p></div>
+        <div class="card"><span class="badge">🗳 В очереди</span><h3>Депозит-гарант</h3><p>Залог в систему, теряет при косяке.</p></div>
+        <div class="card"><span class="badge">🗳 В очереди</span><h3>AI-помощник</h3><p>Отвечает за тебя в переписке в твоём стиле.</p></div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="wrap">
+      <h2>Голосуй за следующий</h2>
+      <p class="lead" style="margin-top:6px">Тыкни — отдашь голос в боте:</p>
+      <div class="checks">
+        <a class="chip" href="https://t.me/vdavc_bot?start=vote_reestr" target="_blank" rel="noopener">Реестр долбоёбов</a>
+        <a class="chip" href="https://t.me/vdavc_bot?start=vote_deposit" target="_blank" rel="noopener">Депозит-гарант</a>
+        <a class="chip" href="https://t.me/vdavc_bot?start=vote_ai" target="_blank" rel="noopener">AI-помощник</a>
+        <a class="chip" href="https://t.me/vdavc_bot?start=vote_bot" target="_blank" rel="noopener">Бот-критик</a>
+      </div>
+      <div class="cta-row">
+        <a class="btn" href="https://t.me/vdavc_bot?start=idea" target="_blank" rel="noopener">Предложить идею</a>
+        <a class="btn safe" href="https://t.me/vdavc_bot?start=donate" target="_blank" rel="noopener">Поддержать — на 1 долбоёба меньше на планете</a>
+      </div>
+    </div>
+  </section>
+  <footer class="foot">
+    <div class="wrap">Ещё: <a href="/">dolboebam.net</a> · <a href="/peregovorshchik.html">Переговорщик</a> · <a href="https://mediator.vdai.me/">mediator.vdai.me</a></div>
+  </footer>
+</main>
+</body>
+</html>
