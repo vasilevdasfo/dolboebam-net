@@ -454,8 +454,10 @@ h2{
     <a href="#client">Кому слать</a>
     <a href="#etymology">Этимология</a>
     <a href="#cases">Кейсы</a>
+    <a href="#uslugi">Услуги</a>
     <a href="#show">Реалити</a>
     <a href="#video">Видео</a>
+    <a href="#deviz">Девиз</a>
   </nav>
 </header>
 
@@ -745,6 +747,26 @@ h2{
     </div>
   </section>
 
+  <section id="uslugi">
+    <div class="wrap">
+      <div class="section-top">
+        <div>
+          <div class="label">Идеи услуг</div>
+          <h2>Боль → услуга</h2>
+        </div>
+        <p class="section-note">Каждая услуга растёт из реальной боли — из живых историй. Собираем спрос: что нужнее, то делаем первым.</p>
+      </div>
+      <div class="grid two">
+        <article class="card hot"><h3>Отменил, не приехал, время в трубу</h3><p>→ <strong>Проверка на долбоёба</strong>: пре-скрининг и подтверждение до выезда. <a href="#check" style="text-decoration:underline">Попробовать</a></p></article>
+        <article class="card hot"><h3>Кинул — а рычага нет (Google бессилен)</h3><p>→ <strong>Реестр долбоёбов</strong>: коллективный список с доказательствами. Косячишь — доступ закрыт.</p></article>
+        <article class="card hot"><h3>Обещал и не сделал, денег не вернул</h3><p>→ <strong>Депозит-гарант</strong>: вносит залог в систему, теряет при косяке.</p></article>
+        <article class="card hot"><h3>Тону в переписке, каждому объясняй заново</h3><p>→ <strong>AI-помощник</strong>: отвечает вместо тебя в твоём стиле по твоим чатам.</p></article>
+      </div>
+      <p class="small" style="margin-top:14px">Какой услуги не хватает? Предложите — соберём в базу спроса.</p>
+      <div class="cta-row"><a class="btn safe" href="#deviz">Предложить идею</a></div>
+    </div>
+  </section>
+
   <section id="svoboda">
     <div class="wrap split">
       <div class="statement">
@@ -802,6 +824,40 @@ h2{
         <article class="scenario"><span class="num">8</span><div><b>“Медиатор вместо скандала”</b><p>Как одна нейтральная ссылка экономит десятки сообщений и защищает отношения.</p></div></article>
         <article class="scenario"><span class="num">9</span><div><b>“Бот принимает удар на себя”</b><p>Показываем Telegram-вход: человек пишет в бота, а не напрямую в личку.</p></div></article>
         <article class="scenario"><span class="num">10</span><div><b>“Из мата в бизнес”</b><p>Финал серии: мем стал продуктом, продукт стал фильтром, фильтр стал сервисом.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="deviz">
+    <div class="wrap">
+      <div class="section-top">
+        <div>
+          <div class="label">Рубрика</div>
+          <h2>Дебил-девиз</h2>
+        </div>
+        <p class="section-note">Народные девизы против долбоёбов. Лучшие вешаем на сайт — коллективный мозг и есть наши лозунги.</p>
+      </div>
+      <div class="checks">
+        <span class="chip tag">Долбоёб не пройдёт</span>
+        <span class="chip tag">Проверь, потом доверяй</span>
+        <span class="chip tag">Не воюй — фильтруй</span>
+        <span class="chip tag">Сначала проверка — потом сделка</span>
+        <span class="chip tag">Нормальные — внутри, долбоёбы — за дверь</span>
+        <span class="chip tag">Меньше долбоёбов — больше жизни</span>
+        <span class="chip tag">Выйди из рабства долбоёбов</span>
+      </div>
+      <div class="client-box" style="margin-top:18px">
+        <h3>Предложить свой девиз или идею услуги</h3>
+        <form class="form" onsubmit="return false">
+          <label for="devizText">Ваш девиз или идея</label>
+          <textarea id="devizText" placeholder="Напр.: «Долбоёбам — нет, людям — да» или идея услуги под вашу боль"></textarea>
+          <button class="btn safe" type="button" onclick="composeDeviz()">Собрать</button>
+          <div class="copy-result" id="devizResult">Соберём текст — отправите в бота, добавим в базу.</div>
+          <div class="cta-row">
+            <button class="btn secondary" type="button" onclick="copyDeviz()">Скопировать</button>
+            <a class="btn" href="https://t.me/vdavc_bot?start=deviz" target="_blank" rel="noopener">Отправить в Telegram</a>
+          </div>
+        </form>
       </div>
     </div>
   </section>
@@ -950,6 +1006,19 @@ async function copyCheck(){
     document.getElementById('checkResult').textContent = text + '\n\nСкопировано.';
   }catch(e){
     document.getElementById('checkResult').textContent = text + '\n\nСкопируйте вручную.';
+  }
+}
+function composeDeviz(){
+  var t = document.getElementById('devizText').value.trim();
+  document.getElementById('devizResult').textContent = t ? ('Дебил-девиз / идея услуги:\n' + t) : 'Напишите свой девиз или идею услуги.';
+}
+async function copyDeviz(){
+  var text = document.getElementById('devizResult').textContent;
+  try{
+    await navigator.clipboard.writeText(text);
+    document.getElementById('devizResult').textContent = text + '\n\nСкопировано.';
+  }catch(e){
+    document.getElementById('devizResult').textContent = text + '\n\nСкопируйте вручную.';
   }
 }
 </script>
