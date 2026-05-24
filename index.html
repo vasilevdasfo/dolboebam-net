@@ -119,8 +119,8 @@ button,input,textarea{font:inherit}
 h1{
   max-width:820px;
   margin-top:26px;
-  font-size:clamp(40px,7.2vw,92px);
-  line-height:.92;
+  font-size:clamp(30px,5.6vw,64px);
+  line-height:.98;
   letter-spacing:0;
   text-transform:uppercase;
   overflow-wrap:anywhere;
@@ -281,11 +281,11 @@ h2{
   padding:24px;
   border:1px solid var(--ink);
   border-radius:8px;
-  background:#111;
-  color:#fff;
-  box-shadow:8px 8px 0 rgba(17,17,17,.18);
+  background:var(--paper);
+  color:var(--ink);
+  box-shadow:8px 8px 0 rgba(17,17,17,.10);
 }
-.statement strong{color:var(--yellow)}
+.statement strong{color:var(--red)}
 .quote{
   margin-top:16px;
   padding-left:16px;
@@ -467,8 +467,6 @@ h2{
     <a href="#etymology">Этимология</a>
     <a href="#cases">Кейсы</a>
     <a href="#uslugi">Услуги</a>
-    <a href="#show">Реалити</a>
-    <a href="#video">Видео</a>
     <a href="#deviz">Девиз</a>
   </nav>
 </header>
@@ -477,7 +475,7 @@ h2{
   <section class="hero">
     <div class="wrap hero-copy">
       <div class="kicker">Клуб нормальных людей · долбоёбам вход воспрещён</div>
-      <h1>Устали от <span class="red">долбоёбов</span>?<span class="h1-sub">Строим мир нормальных людей.</span></h1>
+      <h1>Долбоёбам <span class="red">нет места</span> в мире нормальных людей<span class="h1-sub">Дальше — не идёшь.</span></h1>
       <p class="lead">Перед новым человеком или оффером наш продукт достаёт из базы живых кейсов, <strong>где камни и что обсудить</strong>, и собирает нейтральную ссылку для проверки. Не воюйте напрямую.</p>
       <div class="cta-row">
         <a class="btn safe" href="#check">У меня есть долбоёб</a>
@@ -523,7 +521,7 @@ h2{
       <div class="split" style="margin-top:18px">
         <div class="statement">
           <p><strong>Аналогия: что решил Uber.</strong></p>
-          <p style="color:#d8d1c2;margin-top:8px">Раньше такси: торг о цене, «нет сдачи», везут длинной дорогой, нахамили, не приехали. А для водителя — клиент спачкал машину, агрессивный, выпрашивает подешевле. Рычага нет ни у кого.</p>
+          <p style="color:var(--muted);margin-top:8px">Раньше такси: торг о цене, «нет сдачи», везут длинной дорогой, нахамили, не приехали. А для водителя — клиент спачкал машину, агрессивный, выпрашивает подешевле. Рычага нет ни у кого.</p>
         </div>
         <div class="client-box">
           <h3>Uber не сделал людей лучше — он прописал правила</h3>
@@ -538,6 +536,16 @@ h2{
       </div>
 
       <p class="quote" style="margin-top:16px">Пропишите правила и шаблон на входе — вопросов в разы меньше, до 95% проблем просто не возникает. «Проверка» подсвечивает камни и фиксирует договорённости сразу, до денег и обещаний.</p>
+      <p class="small" style="margin-top:14px;margin-bottom:6px">Правила, которые реально работают (из практики медиаторов):</p>
+      <div class="checks">
+        <span class="chip tag">Всё в текст</span>
+        <span class="chip tag">Дробим на этапы</span>
+        <span class="chip tag">Минимальный аванс</span>
+        <span class="chip tag">Точки контроля: фото/созвон</span>
+        <span class="chip tag">Не даёшь рычаги о себе</span>
+        <span class="chip tag">Границы — коротко и твёрдо</span>
+        <span class="chip tag">Уходит в эмоции → возвращаем к условиям</span>
+      </div>
     </div>
   </section>
 
@@ -572,7 +580,7 @@ h2{
       <div class="split" style="margin-top:20px">
         <div class="statement" id="checkStones">
           <p><strong>Камни — из базы кейсов.</strong></p>
-          <p style="color:#d8d1c2;margin-top:8px">Выберите ситуацию выше — покажу, что в ней обычно идёт не так и что стоит обсудить заранее, до денег и обещаний. Это собрано из живых историй людей, а не выдумано.</p>
+          <p style="color:var(--muted);margin-top:8px">Выберите ситуацию выше — покажу, что в ней обычно идёт не так и что стоит обсудить заранее, до денег и обещаний. Это собрано из живых историй людей, а не выдумано.</p>
         </div>
         <div class="client-box">
           <form class="form" onsubmit="return false">
@@ -811,53 +819,6 @@ h2{
         <h3>Выйдем из рабства долбоёбов</h3>
         <p>Мы не ждём, пока система станет справедливой. Собираем людей и кейсы в свою базу и решаем здесь и сейчас: кому доверять, с кем не связываться, как договариваться по-человечески.</p>
         <div class="cta-row"><a class="btn safe" href="#check">Проверить человека</a></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="show">
-    <div class="wrap">
-      <div class="section-top">
-        <div>
-          <div class="label">Реалити-шоу</div>
-          <h2>Из злости в продукт за один день</h2>
-        </div>
-        <p class="section-note">Это можно показывать как живой сериал: была боль, появился домен, сайт, нейтральная ссылка, Telegram-вход и сценарии контента.</p>
-      </div>
-      <div class="metrics">
-        <div class="metric"><b>~2.9k</b><span>символов входа от Дмитрия в этой ветке идеи</span></div>
-        <div class="metric"><b>чек</b><span>затраты: домен куплен, точную сумму берём из Namecheap-инвойса</span></div>
-        <div class="metric"><b>1</b><span>мем-домен как верхняя воронка</span></div>
-        <div class="metric"><b>2</b><span>страницы: публичная и нейтральная клиентская</span></div>
-      </div>
-      <div class="timeline" style="margin-top:24px">
-        <div class="time-item"><strong>Раньше:</strong> конфликт жил в переписке, эмоциях, голосовых и ручном объяснении каждому человеку заново.</div>
-        <div class="time-item"><strong>Сегодня:</strong> проблема названа, домен куплен, упаковка превращена в сайт, а грубый мем отделён от нейтральной клиентской ссылки.</div>
-        <div class="time-item"><strong>Дальше:</strong> каждый конфликт становится кейсом: бот принимает ситуацию, VDAI выдаёт медиаторский сценарий, шаблон или отказ.</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="video">
-    <div class="wrap">
-      <div class="section-top">
-        <div>
-          <div class="label">Контент</div>
-          <h2>10 сценариев для видео</h2>
-        </div>
-        <p class="section-note">Формат: реалити, где Дмитрий показывает не идею в вакууме, а живой путь от раздражения до работающего продукта.</p>
-      </div>
-      <div class="scenarios">
-        <article class="scenario"><span class="num">1</span><div><b>“У меня есть долбоёб”</b><p>Открытие: почему это не оскорбление, а боль про отсутствие правил доступа.</p></div></article>
-        <article class="scenario"><span class="num">2</span><div><b>“Нельзя слать мем-сайт клиенту”</b><p>Разводим два слоя: dolboebam.net для идеи, mediator.vdai.me для внешней коммуникации.</p></div></article>
-        <article class="scenario"><span class="num">3</span><div><b>“AI как санитар переписки”</b><p>Показываем, как сырой конфликт превращается в факты, условия и спокойный текст.</p></div></article>
-        <article class="scenario"><span class="num">4</span><div><b>“Сосед, подрядчик, клиент”</b><p>Три бытовых кейса: шум, сорванный срок, неоплаченный результат.</p></div></article>
-        <article class="scenario"><span class="num">5</span><div><b>“Сколько стоил запуск”</b><p>Сравнение: раньше неделя хаоса, сегодня домен + сайт + страница + воронка.</p></div></article>
-        <article class="scenario"><span class="num">6</span><div><b>“Этимология без занудства”</b><p>Почему “долбить” + обсценный усилитель так точно описывает разрушительное поведение.</p></div></article>
-        <article class="scenario"><span class="num">7</span><div><b>“Нормальные люди по нормальным правилам”</b><p>Главная философия: не строить мир против всех, а дать доступ тем, кто умеет договариваться.</p></div></article>
-        <article class="scenario"><span class="num">8</span><div><b>“Медиатор вместо скандала”</b><p>Как одна нейтральная ссылка экономит десятки сообщений и защищает отношения.</p></div></article>
-        <article class="scenario"><span class="num">9</span><div><b>“Бот принимает удар на себя”</b><p>Показываем Telegram-вход: человек пишет в бота, а не напрямую в личку.</p></div></article>
-        <article class="scenario"><span class="num">10</span><div><b>“Из мата в бизнес”</b><p>Финал серии: мем стал продуктом, продукт стал фильтром, фильтр стал сервисом.</p></div></article>
       </div>
     </div>
   </section>
