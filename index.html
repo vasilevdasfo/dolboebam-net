@@ -462,7 +462,7 @@ h2{
   <div style="max-width:440px;width:100%;background:var(--paper);border:1px solid var(--ink);border-radius:10px;padding:22px;box-shadow:8px 8px 0 rgba(17,17,17,.3)">
     <h3 style="font-size:20px;margin-bottom:10px">Прежде чем войти</h3>
     <p style="font-size:14px;color:#343630;line-height:1.55">«Долбоёб» здесь — разговорный термин про <b>паттерн поведения</b>, а не оскорбление и не диагноз конкретного человека. Мы не оскорбляем — помогаем фиксировать правила. Реестр — пользовательские данные: их вносят сами пользователи и несут за это ответственность; мы лишь храним и предоставляем доступ. Используя сайт, вы это понимаете и принимаете.</p>
-    <button class="btn safe" type="button" onclick="acceptDisclaimer()" style="width:100%;margin-top:14px">Понятно, продолжить</button>
+    <button class="btn safe" type="button" id="disclaimerBtn" style="width:100%;margin-top:14px">Понятно, продолжить</button>
   </div>
 </div>
 <header class="topbar">
@@ -928,10 +928,10 @@ h2{
           <form class="form" onsubmit="return false">
             <label for="ideaText">Какой маразм / долбоёб-боль добить следующей?</label>
             <textarea id="ideaText" placeholder="Опишите проблему или назовите проект"></textarea>
-            <button class="btn safe" type="button" onclick="composeIdea()">Собрать</button>
+            <button class="btn safe" type="button" id="composeIdeaBtn">Собрать</button>
             <div class="copy-result" id="ideaResult">Тыкни кандидата выше, чтобы отдать голос, — или напиши свою идею.</div>
             <div class="cta-row">
-              <button class="btn secondary" type="button" onclick="copyIdea()">Скопировать</button>
+              <button class="btn secondary" type="button" id="copyIdeaBtn">Скопировать</button>
               <a class="btn" id="ideaTg" href="https://t.me/vdavc_bot?start=idea" target="_blank" rel="noopener">Отправить идею</a>
             </div>
           </form>
@@ -1165,7 +1165,10 @@ async function copyIdea(){
   ['composeCheckBtn', composeCheck],
   ['copyCheckBtn', copyCheck],
   ['composeDevizBtn', composeDeviz],
-  ['copyDevizBtn', copyDeviz]
+  ['copyDevizBtn', copyDeviz],
+  ['composeIdeaBtn', composeIdea],
+  ['copyIdeaBtn', copyIdea],
+  ['disclaimerBtn', acceptDisclaimer]
 ].forEach(function(pair){
   var button = document.getElementById(pair[0]);
   if(button) button.addEventListener('click', pair[1]);
