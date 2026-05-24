@@ -458,6 +458,13 @@ h2{
 </style>
 </head>
 <body>
+<div id="disclaimer" style="position:fixed;inset:0;z-index:100;background:rgba(17,17,17,.86);display:none;align-items:center;justify-content:center;padding:18px">
+  <div style="max-width:440px;width:100%;background:var(--paper);border:1px solid var(--ink);border-radius:10px;padding:22px;box-shadow:8px 8px 0 rgba(17,17,17,.3)">
+    <h3 style="font-size:20px;margin-bottom:10px">Прежде чем войти</h3>
+    <p style="font-size:14px;color:#343630;line-height:1.55">«Долбоёб» здесь — разговорный термин про <b>паттерн поведения</b>, а не оскорбление и не диагноз конкретного человека. Мы не оскорбляем — помогаем фиксировать правила. Реестр — пользовательские данные: их вносят сами пользователи и несут за это ответственность; мы лишь храним и предоставляем доступ. Используя сайт, вы это понимаете и принимаете.</p>
+    <button class="btn safe" type="button" onclick="acceptDisclaimer()" style="width:100%;margin-top:14px">Понятно, продолжить</button>
+  </div>
+</div>
 <header class="topbar">
   <a class="brand" href="#top" aria-label="Долбоёбам нет">
     <span class="mark">!</span>
@@ -804,7 +811,7 @@ h2{
       </div>
       <div class="grid two">
         <article class="card hot"><h3>Проверить долбоёба</h3><p>Пре-скрининг человека до сделки: камни и красные флаги заранее. <em>Боль: отменил, не приехал, время в трубу.</em> <a href="#check" style="text-decoration:underline">Попробовать</a></p></article>
-        <article class="card hot"><h3>Сообщить о долбоёбе</h3><p>Добавить в реестр с доказательствами; косячишь — доступ закрыт. <em>Боль: кинул, а Google бессилен.</em></p></article>
+        <article class="card hot"><h3>Сообщить о долбоёбе</h3><p>Внести в реестр <strong>поведение</strong> — без имён, только паттерн и факты. Данные вносят пользователи и несут ответственность; мы лишь храним и даём доступ. <em>Боль: кинул, а Google бессилен.</em></p></article>
         <article class="card hot"><h3>Помочь разобраться</h3><p>Нейтральный медиатор + депозит-гарант: фиксируем правила, держим залог. <em>Боль: обещал и не вернул.</em></p></article>
         <article class="card hot"><h3>AI-помощник</h3><p>Отвечает за тебя в переписке в твоём стиле. <em>Боль: тонешь в переписке, каждому объясняй заново.</em></p></article>
       </div>
@@ -848,6 +855,19 @@ h2{
         <span class="chip tag">Договор дороже нервных клеток</span>
         <span class="chip tag">Верю на слово — плачу деньгами</span>
         <span class="chip tag">Сначала депозит, потом дружба</span>
+      </div>
+      <p class="small" style="margin-top:18px;margin-bottom:6px">Свежие — от команды:</p>
+      <div class="grid">
+        <div class="card"><p>«Все всё поняли, кроме человека, который должен был сделать.»</p></div>
+        <div class="card"><p>«Обещал сегодня. Сегодня оказалось философским понятием.»</p></div>
+        <div class="card"><p>«Если договорённость нельзя пересказать одним сообщением — там уже живёт риск.»</p></div>
+        <div class="card"><p>«Не спорим, кто долбоёб. Сначала фиксируем условия.»</p></div>
+        <div class="card"><p>«Хороший человек не боится правил. Боится тот, кто хотел импровизировать за ваш счёт.»</p></div>
+        <div class="card"><p>«Сделка без правил — квест с платным DLC: нервы, время, юрист.»</p></div>
+        <div class="card"><p>«Оба считают друг друга сложными. Медиатор хотя бы считает по пунктам.»</p></div>
+        <div class="card"><p>«Если „давай по-братски" звучит до оплаты — включаем шаблон.»</p></div>
+        <div class="card"><p>«Нормальные люди не обижаются на ясность.»</p></div>
+        <div class="card"><p>«Долбоёб — не диагноз. Это повторяемый паттерн без протокола.»</p></div>
       </div>
       <div class="client-box" style="margin-top:18px">
         <h3>Предложить свой девиз или идею услуги</h3>
@@ -919,7 +939,7 @@ h2{
         <div class="statement">
           <p><strong>Поддержать</strong></p>
           <p>Голос рублём ускоряет нужный проект. Донат — на разработку следующего инструмента против долбоёбов. Без обязательств, сколько не жалко.</p>
-          <div class="cta-row"><a class="btn safe" href="https://t.me/vdavc_bot?start=donate" target="_blank" rel="noopener">Поддержать проект</a></div>
+          <div class="cta-row"><a class="btn safe" href="https://t.me/vdavc_bot?start=donate" target="_blank" rel="noopener">Поддержать проект — на 1 долбоёба меньше на планете</a></div>
         </div>
       </div>
     </div>
@@ -953,6 +973,7 @@ h2{
 <footer class="footer">
   <div class="wrap">
     <div><strong>Долбоёбам — нет.</strong><br>Нормальным людям — правила и медиатор. Сделано нормальными людьми; долбоёбы к разработке не допущены.</div>
+    <div class="small" style="margin-top:8px;opacity:.85">Правовая рамка: «долбоёб» — про паттерн поведения, не оскорбление и не диагноз. Реестр — пользовательские данные, ответственность на вносящем.</div>
     <div class="small">Клиентская ссылка: <a href="https://mediator.vdai.me/">mediator.vdai.me</a></div>
   </div>
 </footer>
@@ -1149,6 +1170,8 @@ async function copyIdea(){
   var button = document.getElementById(pair[0]);
   if(button) button.addEventListener('click', pair[1]);
 });
+function acceptDisclaimer(){var d=document.getElementById('disclaimer');if(d)d.style.display='none';try{localStorage.setItem('dlb_disc','1');}catch(e){}}
+(function(){try{if(!localStorage.getItem('dlb_disc')){var d=document.getElementById('disclaimer');if(d)d.style.display='flex';}}catch(e){}})();
 </script>
 </body>
 </html>
