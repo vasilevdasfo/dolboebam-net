@@ -892,12 +892,12 @@ h2{
       </div>
       <p class="small" style="margin-bottom:8px">Кандидаты (тыкни — отдашь голос):</p>
       <div class="checks" id="voteChips">
-        <span class="chip" data-v="Реестр долбоёбов">Реестр долбоёбов</span>
-        <span class="chip" data-v="Депозит-гарант">Депозит-гарант</span>
-        <span class="chip" data-v="AI-помощник">AI-помощник (отвечает за тебя)</span>
-        <span class="chip" data-v="Бот-критик">Бот-критик</span>
-        <span class="chip" data-v="Проверка работодателя">Проверка работодателя</span>
-        <span class="chip" data-v="Проверка арендодателя">Проверка арендодателя</span>
+        <span class="chip" data-v="Реестр долбоёбов" data-slug="reestr">Реестр долбоёбов</span>
+        <span class="chip" data-v="Депозит-гарант" data-slug="deposit">Депозит-гарант</span>
+        <span class="chip" data-v="AI-помощник" data-slug="ai">AI-помощник (отвечает за тебя)</span>
+        <span class="chip" data-v="Бот-критик" data-slug="bot">Бот-критик</span>
+        <span class="chip" data-v="Проверка работодателя" data-slug="employer">Проверка работодателя</span>
+        <span class="chip" data-v="Проверка арендодателя" data-slug="landlord">Проверка арендодателя</span>
       </div>
       <div class="split" style="margin-top:18px">
         <div class="client-box">
@@ -1117,7 +1117,7 @@ async function copyDeviz(){
     var r = document.getElementById('ideaResult');
     if(r) r.textContent = 'Голос за: ' + v + '\nОтправь в бота, чтобы голос засчитался.';
     var tg = document.getElementById('ideaTg');
-    if(tg) tg.href = 'https://t.me/vdavc_bot?start=vote_' + encodeURIComponent(v.toLowerCase().replace(/\s+/g,'_'));
+    if(tg) tg.href = 'https://t.me/vdavc_bot?start=vote_' + (c.getAttribute('data-slug') || 'other');
   });
 })();
 function composeIdea(){
