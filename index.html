@@ -88,17 +88,19 @@ button,input,textarea{font:inherit}
 }
 .nav a:hover{color:var(--ink)}
 .hero{
-  min-height:calc(100svh - 64px);
+  min-height:auto;
+  align-items:start;
   display:grid;
   grid-template-columns:minmax(0,1.05fr) minmax(380px,.95fr);
+  gap:28px;
   border-bottom:1px solid var(--ink);
 }
 .hero-copy{
   min-width:0;
   display:flex;
   flex-direction:column;
-  justify-content:center;
-  padding:74px 0 64px;
+  justify-content:flex-start;
+  padding:46px 0 40px;
 }
 .kicker{
   display:inline-flex;
@@ -424,6 +426,16 @@ h2{
   .section-top{display:block}
   .section-note{margin-top:12px}
 }
+@media (max-width:400px){
+  .wrap{width:min(100% - 20px,1160px)}
+  h1{font-size:clamp(30px,10.5vw,44px)}
+  .h1-sub{font-size:clamp(18px,5.8vw,28px)}
+  h2{font-size:clamp(24px,8.5vw,38px)}
+  .chip{max-width:100%;font-size:13px;padding:9px 12px}
+  .hero-copy{padding:28px 0 30px}
+  section{padding:40px 0}
+  .btn{font-size:12px}
+}
 @media (max-width:620px){
   .wrap{width:min(100% - 28px,1160px)}
   .topbar{padding:0 14px;min-height:58px}
@@ -468,7 +480,7 @@ h2{
       <h1>Устали от <span class="red">долбоёбов</span>?<span class="h1-sub">Строим мир нормальных людей.</span></h1>
       <p class="lead">Перед новым человеком или оффером наш продукт достаёт из базы живых кейсов, <strong>где камни и что обсудить</strong>, и собирает нейтральную ссылку для проверки. Не воюйте напрямую.</p>
       <div class="cta-row">
-        <a class="btn safe" href="#check">Да</a>
+        <a class="btn safe" href="#check">У меня есть долбоёб</a>
         <a class="btn secondary" href="#how">Как это работает</a>
       </div>
       <p class="small" style="margin-top:14px;max-width:560px">Нормальным людям — прямой доступ. Сложным — нейтральный процесс и ссылка <a href="https://mediator.vdai.me/" style="text-decoration:underline">mediator.vdai.me</a>.</p>
