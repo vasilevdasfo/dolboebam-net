@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dolboebam.net/sitemap.xml
+Sitemap: http://dolboebam.net/sitemap.xml

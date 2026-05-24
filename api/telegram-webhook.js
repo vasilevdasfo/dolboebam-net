@@ -25,8 +25,13 @@ export default async function handler(req, res) {
 
   const token = process.env.TELEGRAM_BOT_TOKEN;
   const ownerChatId = process.env.DIMA_CHAT_ID;
+  const webhookSecret = process.env.TELEGRAM_WEBHOOK_SECRET;
   if (!token || !ownerChatId) {
     res.status(200).json({ ok: true, configured: false });
+    return;
+  }
+  if (webhookSecret && req.headers["x-telegram-bot-api-secret-token"] !== webhookSecret) {
+    res.status(401).json({ ok: false });
     return;
   }
 

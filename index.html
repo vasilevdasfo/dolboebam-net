@@ -8,8 +8,8 @@
 <meta property="og:title" content="Долбоёбам — нет">
 <meta property="og:description" content="Если у вас есть сложный человек, конфликт или хаос в коммуникации, не спорьте напрямую. Опишите ситуацию, получите нейтральный сценарий, шаблон или медиатора.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://dolboebam.net/">
-<link rel="canonical" href="https://dolboebam.net/">
+<meta property="og:url" content="http://dolboebam.net/">
+<link rel="canonical" href="http://dolboebam.net/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23111111'/%3E%3Cpath d='M13 34h38v7H13zM13 23h38v7H13z' fill='%23f4f1e8'/%3E%3Cpath d='M43 16l7 7-29 29-7-7z' fill='%23e6402f'/%3E%3C/svg%3E">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -483,7 +483,7 @@ h2{
         <a class="btn safe" href="#check">У меня есть долбоёб</a>
         <a class="btn secondary" href="#how">Как это работает</a>
       </div>
-      <p class="small" style="margin-top:14px;max-width:560px">Нормальным людям — прямой доступ. Сложным — нейтральный процесс и ссылка <a href="https://mediator.vdai.me/" style="text-decoration:underline">mediator.vdai.me</a>.</p>
+      <p class="small" style="margin-top:14px;max-width:560px">Нормальным людям — прямой доступ. Сложным — нейтральный процесс и ссылка <a href="http://mediator.vdai.me/" style="text-decoration:underline">mediator.vdai.me</a>.</p>
     </div>
     <div class="wrap hero-visual" aria-label="Схема AI-медиатора">
       <div class="console">
@@ -582,10 +582,10 @@ h2{
             <input id="checkWho" placeholder="Имя, роль, откуда">
             <label for="checkDesc">Что важно именно вам (необязательно)</label>
             <textarea id="checkDesc" placeholder="Бюджет, сроки, на что точно не согласны"></textarea>
-            <button class="btn safe" type="button" onclick="composeCheck()">Собрать ссылку на VDAI</button>
+            <button class="btn safe" type="button" id="composeCheckBtn">Собрать ссылку на VDAI</button>
             <div class="copy-result" id="checkResult">Здесь появятся камни, нейтральная ссылка и текст для нового человека.</div>
             <div class="cta-row">
-              <button class="btn secondary" type="button" onclick="copyCheck()">Скопировать</button>
+              <button class="btn secondary" type="button" id="copyCheckBtn">Скопировать</button>
               <a class="btn" id="checkTg" href="https://t.me/vdavc_bot?start=check" target="_blank" rel="noopener">Через Telegram</a>
             </div>
           </form>
@@ -650,7 +650,7 @@ h2{
           <h3>Нейтральная ссылка для человека</h3>
           <p>Для партнёра, подрядчика, клиента, соседа — приличная ссылка без оскорбления:</p>
           <div class="cta-row">
-            <a class="btn safe" href="https://mediator.vdai.me/">Открыть VDAI Mediator</a>
+            <a class="btn safe" href="http://mediator.vdai.me/">Открыть VDAI Mediator</a>
             <a class="btn secondary" href="https://t.me/vdavc_bot?start=mediator">Telegram-вход</a>
           </div>
           <div class="do-not">Им — «защита сделки / сверка ожиданий». Слово «долбоёб» остаётся у нас, не у них.</div>
@@ -770,10 +770,10 @@ h2{
           <textarea id="caseWish" placeholder="Как должно было бы быть, чего вы хотите от ситуации"></textarea>
           <label for="caseSolution">3 · Решение (что помогло / что нужно)</label>
           <textarea id="caseSolution" placeholder="Шаблон, правила, медиатор, гарант, нейтральная ссылка — что закрыло бы вопрос"></textarea>
-          <button class="btn safe" type="button" onclick="composeCase()">Собрать кейс</button>
+          <button class="btn safe" type="button" id="composeCaseBtn">Собрать кейс</button>
           <div class="copy-result" id="caseResult">Здесь появится готовый кейс в структуре «История → хотели → решение».</div>
           <div class="cta-row">
-            <button class="btn secondary" type="button" onclick="copyCase()">Скопировать</button>
+            <button class="btn secondary" type="button" id="copyCaseBtn">Скопировать</button>
             <a class="btn" href="https://t.me/vdavc_bot?start=case">Отправить в Telegram</a>
           </div>
         </form>
@@ -885,10 +885,10 @@ h2{
         <form class="form" onsubmit="return false">
           <label for="devizText">Ваш девиз или идея</label>
           <textarea id="devizText" placeholder="Напр.: «Долбоёбам — нет, людям — да» или идея услуги под вашу боль"></textarea>
-          <button class="btn safe" type="button" onclick="composeDeviz()">Собрать</button>
+          <button class="btn safe" type="button" id="composeDevizBtn">Собрать</button>
           <div class="copy-result" id="devizResult">Соберём текст — отправите в бота, добавим в базу.</div>
           <div class="cta-row">
-            <button class="btn secondary" type="button" onclick="copyDeviz()">Скопировать</button>
+            <button class="btn secondary" type="button" id="copyDevizBtn">Скопировать</button>
             <a class="btn" href="https://t.me/vdavc_bot?start=deviz" target="_blank" rel="noopener">Отправить в Telegram</a>
           </div>
         </form>
@@ -928,10 +928,10 @@ h2{
           <textarea id="situation" placeholder="Кто участники, что обещали, где конфликт, что нужно получить на выходе"></textarea>
           <label for="goal">Какой результат нужен</label>
           <input id="goal" placeholder="Например: нейтральный ответ, правила чата, шаблон договора, отказ">
-          <button class="btn safe" type="button" onclick="composeMediatorText()">Собрать текст</button>
+          <button class="btn safe" type="button" id="composeMediatorTextBtn">Собрать текст</button>
           <div class="copy-result" id="result">Здесь появится текст для VDAI Mediator.</div>
           <div class="cta-row">
-            <button class="btn secondary" type="button" onclick="copyMediatorText()">Скопировать</button>
+            <button class="btn secondary" type="button" id="copyMediatorTextBtn">Скопировать</button>
             <a class="btn" href="https://t.me/vdavc_bot?start=mediator">Открыть Telegram</a>
           </div>
         </form>
@@ -943,7 +943,7 @@ h2{
 <footer class="footer">
   <div class="wrap">
     <div><strong>Долбоёбам — нет.</strong><br>Нормальным людям — правила, AI и медиатор.</div>
-    <div class="small">Клиентская ссылка: <a href="https://mediator.vdai.me/">mediator.vdai.me</a></div>
+    <div class="small">Клиентская ссылка: <a href="http://mediator.vdai.me/">mediator.vdai.me</a></div>
   </div>
 </footer>
 
@@ -1011,10 +1011,34 @@ function renderStones(cat){
   var box = document.getElementById('checkStones');
   if(!box) return;
   var st = stonesFor(cat);
-  var html = '<p><strong>Камни в «' + cat + '»</strong></p><div class="flow" style="margin-top:10px">';
-  st.forEach(function(s){ html += '<div class="flow-step"><span class="num">!</span><span>' + s + '</span></div>'; });
-  html += '</div><p class="quote" style="border-left-color:var(--yellow)">Обсудите это ДО денег и обещаний. Ссылка соберёт ответы на нейтральной странице.</p>';
-  box.innerHTML = html;
+  box.replaceChildren();
+  var title = document.createElement('p');
+  var strong = document.createElement('strong');
+  strong.textContent = 'Камни в «' + cat + '»';
+  title.appendChild(strong);
+  box.appendChild(title);
+
+  var flow = document.createElement('div');
+  flow.className = 'flow';
+  flow.style.marginTop = '10px';
+  st.forEach(function(s){
+    var row = document.createElement('div');
+    row.className = 'flow-step';
+    var marker = document.createElement('span');
+    marker.className = 'num';
+    marker.textContent = '!';
+    var text = document.createElement('span');
+    text.textContent = s;
+    row.append(marker, text);
+    flow.appendChild(row);
+  });
+  box.appendChild(flow);
+
+  var note = document.createElement('p');
+  note.className = 'quote';
+  note.style.borderLeftColor = 'var(--yellow)';
+  note.textContent = 'Обсудите это ДО денег и обещаний. Ссылка соберёт ответы на нейтральной странице.';
+  box.appendChild(note);
 }
 (function(){
   var typeRow = document.getElementById('checkType');
@@ -1039,7 +1063,7 @@ function composeCheck(){
   var desc = document.getElementById('checkDesc').value.trim();
   var st = stonesFor(cat);
   renderStones(cat);
-  var link = 'https://mediator.vdai.me/?type=' + encodeURIComponent(checkType) + '&case=' + encodeURIComponent(cat);
+  var link = 'http://mediator.vdai.me/?type=' + encodeURIComponent(checkType) + '&case=' + encodeURIComponent(cat);
   var msg = [
     'Привет! Прежде чем (' + cat.toLowerCase() + ') — давай за пару минут сверим ожидания через нейтрального помощника, чтобы у обоих не было сюрпризов.',
     who ? ('Для: ' + who) : '',
@@ -1074,6 +1098,19 @@ async function copyDeviz(){
     document.getElementById('devizResult').textContent = text + '\n\nСкопируйте вручную.';
   }
 }
+[
+  ['composeMediatorTextBtn', composeMediatorText],
+  ['copyMediatorTextBtn', copyMediatorText],
+  ['composeCaseBtn', composeCase],
+  ['copyCaseBtn', copyCase],
+  ['composeCheckBtn', composeCheck],
+  ['copyCheckBtn', copyCheck],
+  ['composeDevizBtn', composeDeviz],
+  ['copyDevizBtn', copyDeviz]
+].forEach(function(pair){
+  var button = document.getElementById(pair[0]);
+  if(button) button.addEventListener('click', pair[1]);
+});
 </script>
 </body>
 </html>

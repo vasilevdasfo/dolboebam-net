@@ -7,10 +7,11 @@
 - создать отдельного бота в BotFather;
 - добавить в Vercel env `TELEGRAM_BOT_TOKEN`;
 - добавить в Vercel env `DIMA_CHAT_ID`;
+- добавить в Vercel env `TELEGRAM_WEBHOOK_SECRET`;
 - поставить webhook:
 
 ```bash
-curl "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/setWebhook?url=https://dolboebam.net/api/telegram-webhook"
+curl "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/setWebhook?url=https://dolboebam.net/api/telegram-webhook&secret_token=$TELEGRAM_WEBHOOK_SECRET"
 ```
 
 Не используем личный `DEMI_BOT_TOKEN`, чтобы не ломать действующий inbox/voice-бот Дмитрия.
