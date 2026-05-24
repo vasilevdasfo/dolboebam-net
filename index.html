@@ -442,7 +442,7 @@ h2{
   .brand span{font-size:13px}
   .hero-copy{padding:42px 0 38px}
   .kicker{font-size:11px}
-  h1{font-size:clamp(36px,13vw,58px);line-height:.95}
+  h1{font-size:clamp(34px,12vw,56px);line-height:.98;overflow-wrap:normal;word-break:normal;hyphens:none}
   h2{font-size:clamp(30px,11vw,48px);line-height:1}
   .lead{font-size:17px}
   .cta-row{display:grid;grid-template-columns:1fr}
@@ -451,6 +451,9 @@ h2{
   .card,.client-box,.statement{padding:18px}
   .footer .wrap{display:block}
   .footer .small{margin-top:14px}
+}
+@media (max-width:400px){
+  h1{font-size:clamp(30px,10.4vw,40px);line-height:1}
 }
 </style>
 </head>
