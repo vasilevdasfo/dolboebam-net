@@ -468,6 +468,7 @@ h2{
     <a href="#cases">Кейсы</a>
     <a href="#uslugi">Услуги</a>
     <a href="#deviz">Девиз</a>
+    <a href="#future">Голосуй</a>
   </nav>
 </header>
 
@@ -880,6 +881,47 @@ h2{
     </div>
   </section>
 
+  <section id="future">
+    <div class="wrap">
+      <div class="section-top">
+        <div>
+          <div class="label">Пиздёж Инкорпорейтед™</div>
+          <h2>Голосуй за следующий проект</h2>
+        </div>
+        <p class="section-note">Маразм крепчает быстрее, чем мы успеваем. Решай, против какого долбоёб-абсурда бьём дальше: голосуй, предлагай своё, поддержи донатом.</p>
+      </div>
+      <p class="small" style="margin-bottom:8px">Кандидаты (тыкни — отдашь голос):</p>
+      <div class="checks" id="voteChips">
+        <span class="chip" data-v="Реестр долбоёбов">Реестр долбоёбов</span>
+        <span class="chip" data-v="Депозит-гарант">Депозит-гарант</span>
+        <span class="chip" data-v="AI-помощник">AI-помощник (отвечает за тебя)</span>
+        <span class="chip" data-v="Бот-критик">Бот-критик</span>
+        <span class="chip" data-v="Проверка работодателя">Проверка работодателя</span>
+        <span class="chip" data-v="Проверка арендодателя">Проверка арендодателя</span>
+      </div>
+      <div class="split" style="margin-top:18px">
+        <div class="client-box">
+          <h3>Предложить идею</h3>
+          <form class="form" onsubmit="return false">
+            <label for="ideaText">Какой маразм / долбоёб-боль добить следующей?</label>
+            <textarea id="ideaText" placeholder="Опишите проблему или назовите проект"></textarea>
+            <button class="btn safe" type="button" onclick="composeIdea()">Собрать</button>
+            <div class="copy-result" id="ideaResult">Тыкни кандидата выше, чтобы отдать голос, — или напиши свою идею.</div>
+            <div class="cta-row">
+              <button class="btn secondary" type="button" onclick="copyIdea()">Скопировать</button>
+              <a class="btn" id="ideaTg" href="https://t.me/vdavc_bot?start=idea" target="_blank" rel="noopener">Отправить идею</a>
+            </div>
+          </form>
+        </div>
+        <div class="statement">
+          <p><strong>Поддержать</strong></p>
+          <p>Голос рублём ускоряет нужный проект. Донат — на разработку следующего инструмента против долбоёбов. Без обязательств, сколько не жалко.</p>
+          <div class="cta-row"><a class="btn safe" href="https://t.me/vdavc_bot?start=donate" target="_blank" rel="noopener">Поддержать проект</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="intake">
     <div class="wrap split">
       <div>
@@ -1061,6 +1103,34 @@ async function copyDeviz(){
     document.getElementById('devizResult').textContent = text + '\n\nСкопировано.';
   }catch(e){
     document.getElementById('devizResult').textContent = text + '\n\nСкопируйте вручную.';
+  }
+}
+(function(){
+  var vc = document.getElementById('voteChips');
+  if(!vc) return;
+  vc.addEventListener('click', function(e){
+    var c = e.target.closest('.chip');
+    if(!c) return;
+    vc.querySelectorAll('.chip').forEach(function(x){ x.classList.remove('active'); });
+    c.classList.add('active');
+    var v = c.getAttribute('data-v');
+    var r = document.getElementById('ideaResult');
+    if(r) r.textContent = 'Голос за: ' + v + '\nОтправь в бота, чтобы голос засчитался.';
+    var tg = document.getElementById('ideaTg');
+    if(tg) tg.href = 'https://t.me/vdavc_bot?start=vote_' + encodeURIComponent(v.toLowerCase().replace(/\s+/g,'_'));
+  });
+})();
+function composeIdea(){
+  var t = document.getElementById('ideaText').value.trim();
+  document.getElementById('ideaResult').textContent = t ? ('Идея для Пиздёж Инкорпорейтед:\n' + t) : 'Тыкни кандидата выше или напиши свою идею.';
+}
+async function copyIdea(){
+  var text = document.getElementById('ideaResult').textContent;
+  try{
+    await navigator.clipboard.writeText(text);
+    document.getElementById('ideaResult').textContent = text + '\n\nСкопировано.';
+  }catch(e){
+    document.getElementById('ideaResult').textContent = text + '\n\nСкопируйте вручную.';
   }
 }
 [
