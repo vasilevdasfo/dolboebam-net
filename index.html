@@ -398,6 +398,9 @@ h2{
 .chip{display:inline-flex;align-items:center;padding:10px 14px;border:1px solid var(--ink);border-radius:999px;background:var(--paper);font-size:14px;font-weight:850;cursor:pointer;user-select:none}
 .chip:hover{background:var(--yellow)}
 .chip.active{background:var(--ink);color:#fff}
+.chip.tag{cursor:default}
+.chip.tag:hover{background:var(--paper)}
+.h1-sub{display:block;color:var(--ink);font-size:clamp(22px,3.6vw,46px);line-height:1.02;margin-top:12px}
 .footer{
   padding:44px 0;
   background:#111;
@@ -460,8 +463,8 @@ h2{
   <section class="hero">
     <div class="wrap hero-copy">
       <div class="kicker">Мир нормальных взаимодействий</div>
-      <h1>Устали от <span class="red">долбоёбов</span>?</h1>
-      <p class="lead">Хотите взаимодействовать <strong>только с нормальными людьми</strong>? Не воюйте напрямую — пропустите сложного человека через AI-фильтр, шаблон и медиатора.</p>
+      <h1>Устали от <span class="red">долбоёбов</span>?<span class="h1-sub">Строим мир нормальных людей.</span></h1>
+      <p class="lead">Перед новым человеком или оффером AI поговорит с вами, подсветит, <strong>где камни и что обсудить</strong>, и соберёт нейтральную ссылку для проверки. Не воюйте напрямую.</p>
       <div class="cta-row">
         <a class="btn safe" href="#check">Да</a>
         <a class="btn secondary" href="#how">Как это работает</a>
@@ -488,6 +491,34 @@ h2{
     </div>
   </section>
 
+  <section id="problem">
+    <div class="wrap">
+      <div class="section-top">
+        <div>
+          <div class="label">Проблема</div>
+          <h2>Каждый день — по долбоёбу</h2>
+        </div>
+        <p class="section-note">Обычная жизнь ломается по чуть-чуть: за день, неделю и месяц натыкаешься на тех, кто обещает и не делает, подставляет и наёбывает. Схематично — где это происходит.</p>
+      </div>
+      <div class="grid">
+        <article class="card hot"><h3>За день</h3><p>Мелочи: не перезвонил, опоздал, «потом сделаю», слил договорённость.</p></article>
+        <article class="card hot"><h3>За неделю</h3><p>Подрядчик сорвал срок, продавец исчез, «друг» не вернул долг или вещь.</p></article>
+        <article class="card hot"><h3>За месяц</h3><p>И хотя бы один — дорого: деньги, нервы, сорванная сделка, испорченные отношения.</p></article>
+      </div>
+      <p class="small" style="margin-top:16px;margin-bottom:8px">Чем бьют:</p>
+      <div class="checks">
+        <span class="chip tag">Ломают</span>
+        <span class="chip tag">Крушат</span>
+        <span class="chip tag">Обещают и не делают</span>
+        <span class="chip tag">Не приезжают вовремя</span>
+        <span class="chip tag">Подставляют</span>
+        <span class="chip tag">Не возвращают</span>
+        <span class="chip tag">Наёбывают</span>
+      </div>
+      <p class="quote" style="margin-top:18px">«Проверка на долбоёба» ловит это на входе — до того, как вы вложили время, деньги и доверие.</p>
+    </div>
+  </section>
+
   <section id="check">
     <div class="wrap">
       <div class="section-top">
@@ -495,10 +526,15 @@ h2{
           <div class="label">Услуга</div>
           <h2>Проверка на долбоёба</h2>
         </div>
-        <p class="section-note">Первое касание с незнакомым человеком? Не хотите тратить время на шаблоны и долгую переписку. Опишите задачу — получите нейтральную ссылку. Человек переходит, проходит короткий сценарий, и сразу видно: адекват или долбоёб.</p>
+        <p class="section-note">Перед новым человеком или оффером. Не нужно описывать всё самому — AI поговорит с вами и подсветит, где обычно камни и что обсудить. Дальше соберёт нейтральную ссылку на VDAI для этого человека.</p>
       </div>
 
-      <p class="small" style="margin-bottom:10px">Выберите ситуацию (или впишите свою) — соберём ссылку и текст, который не стыдно отправить:</p>
+      <p class="small" style="margin-bottom:8px">Что у вас:</p>
+      <div class="checks" id="checkType">
+        <span class="chip" data-t="Новый контакт">Новый контакт</span>
+        <span class="chip" data-t="Оффер">Оффер</span>
+      </div>
+      <p class="small" style="margin:14px 0 8px">Ситуация (или впишите свою):</p>
       <div class="checks" id="checkChips">
         <span class="chip" data-c="Сантехник">Сантехник</span>
         <span class="chip" data-c="Репетитор">Репетитор</span>
@@ -512,23 +548,20 @@ h2{
       </div>
 
       <div class="split" style="margin-top:20px">
-        <div class="statement">
-          <p><strong>Как работает проверка:</strong></p>
-          <div class="flow" style="margin-top:10px">
-            <div class="flow-step"><span class="num">1</span><span>Выбираете ситуацию и в двух словах описываете задачу.</span></div>
-            <div class="flow-step"><span class="num">2</span><span>Получаете нейтральную ссылку и готовый текст для отправки.</span></div>
-            <div class="flow-step"><span class="num">3</span><span>Человек переходит, отвечает на короткий сценарий — AI отделяет адекватных от долбоёбов и подсвечивает красные флаги.</span></div>
-          </div>
-          <p class="quote" style="border-left-color:var(--yellow)">Ссылка нейтральная (без мата) — её не стыдно отправить кому угодно.</p>
+        <div class="statement" id="checkStones">
+          <p><strong>AI подсветит камни.</strong></p>
+          <p style="color:#d8d1c2;margin-top:8px">Выберите ситуацию выше — покажу, что в ней обычно идёт не так и что стоит обсудить заранее, до денег и обещаний.</p>
         </div>
         <div class="client-box">
           <form class="form" onsubmit="return false">
             <label for="checkCat">Ситуация</label>
             <input id="checkCat" placeholder="Например: Аренда жилья">
-            <label for="checkDesc">Задача в двух словах</label>
-            <textarea id="checkDesc" placeholder="Что нужно, сроки, бюджет, что важно"></textarea>
-            <button class="btn safe" type="button" onclick="composeCheck()">Сгенерировать ссылку</button>
-            <div class="copy-result" id="checkResult">Здесь появятся нейтральная ссылка и текст для отправки.</div>
+            <label for="checkWho">Кто этот человек (необязательно)</label>
+            <input id="checkWho" placeholder="Имя, роль, откуда">
+            <label for="checkDesc">Что важно именно вам (необязательно)</label>
+            <textarea id="checkDesc" placeholder="Бюджет, сроки, на что точно не согласны"></textarea>
+            <button class="btn safe" type="button" onclick="composeCheck()">Собрать ссылку на VDAI</button>
+            <div class="copy-result" id="checkResult">Здесь появятся камни, нейтральная ссылка и текст для нового человека.</div>
             <div class="cta-row">
               <button class="btn secondary" type="button" onclick="copyCheck()">Скопировать</button>
               <a class="btn" id="checkTg" href="https://t.me/vdavc_bot?start=check" target="_blank" rel="noopener">Через Telegram</a>
@@ -831,25 +864,59 @@ async function copyCase(){
     document.getElementById('caseResult').textContent = text + '\n\nСкопируйте вручную.';
   }
 }
+var CHECK_STONES = {
+  'Сантехник':['Цена фиксируется ДО работ или «по факту»','Гарантия на работу и на материалы','Чьи материалы и кто платит за брак','Сроки и размер предоплаты'],
+  'Репетитор':['Оплата за час или за результат','Отмены и переносы занятий','Есть ли пробное занятие','Программа и как меряем прогресс'],
+  'Что-то сделать':['Что именно значит «готово»','Сроки и этапы','Цена и предоплата','Кто отвечает, если переделывать'],
+  'Отвезти':['Время и маршрут','Оплата или по-дружески','Ответственность при опоздании или ДТП','Бензин и расходы'],
+  'Помочь':['Что конкретно нужно и до какого предела','Сроки','Разово или «на постоянку»','Ожидания: бесплатно, бартер или оплата'],
+  'Одолжить машину':['Страховка: кто вписан','Штрафы и ДТП — на ком','Состояние и бензин при возврате','Срок и что если форс-мажор'],
+  'Аренда жилья':['Депозит и условия возврата','Кто платит коммуналку','Условия досрочного выезда','Фото состояния при заселении','Реально ли это собственник'],
+  'Совместная покупка':['Доли: кто сколько платит','На кого оформлено','Что если один выходит','Хранение и доступ'],
+  'Любая ситуация':['Деньги: сколько, когда, предоплата','Сроки и что считается сделанным','Ответственность, если пойдёт не так','Как расходимся, если не сложилось']
+};
+var checkType = 'Новый контакт';
+function stonesFor(cat){ return CHECK_STONES[cat] || CHECK_STONES['Любая ситуация']; }
+function renderStones(cat){
+  var box = document.getElementById('checkStones');
+  if(!box) return;
+  var st = stonesFor(cat);
+  var html = '<p><strong>Камни в «' + cat + '»</strong></p><div class="flow" style="margin-top:10px">';
+  st.forEach(function(s){ html += '<div class="flow-step"><span class="num">!</span><span>' + s + '</span></div>'; });
+  html += '</div><p class="quote" style="border-left-color:var(--yellow)">Обсудите это ДО денег и обещаний. Ссылка соберёт ответы на нейтральной странице.</p>';
+  box.innerHTML = html;
+}
 (function(){
+  var typeRow = document.getElementById('checkType');
+  if(typeRow){ typeRow.addEventListener('click', function(e){
+    var c = e.target.closest('.chip'); if(!c) return;
+    typeRow.querySelectorAll('.chip').forEach(function(x){ x.classList.remove('active'); });
+    c.classList.add('active'); checkType = c.getAttribute('data-t');
+  }); }
   var chips = document.getElementById('checkChips');
-  if(!chips) return;
-  chips.addEventListener('click', function(e){
-    var c = e.target.closest('.chip');
-    if(!c) return;
+  if(chips){ chips.addEventListener('click', function(e){
+    var c = e.target.closest('.chip'); if(!c) return;
     chips.querySelectorAll('.chip').forEach(function(x){ x.classList.remove('active'); });
     c.classList.add('active');
-    document.getElementById('checkCat').value = c.getAttribute('data-c');
-  });
+    var cat = c.getAttribute('data-c');
+    document.getElementById('checkCat').value = cat;
+    renderStones(cat);
+  }); }
 })();
 function composeCheck(){
-  var cat = document.getElementById('checkCat').value.trim() || 'ситуация';
+  var cat = document.getElementById('checkCat').value.trim() || 'Любая ситуация';
+  var who = document.getElementById('checkWho').value.trim();
   var desc = document.getElementById('checkDesc').value.trim();
-  var link = 'https://mediator.vdai.me/?case=' + encodeURIComponent(cat);
+  var st = stonesFor(cat);
+  renderStones(cat);
+  var link = 'https://mediator.vdai.me/?type=' + encodeURIComponent(checkType) + '&case=' + encodeURIComponent(cat);
   var msg = [
-    'Привет! Прежде чем договариваться (' + cat + '), давай за минуту сверим ожидания — чтобы не тратить время зря у обоих.',
-    desc ? ('Вкратце: ' + desc) : '',
-    'Опиши детали здесь: ' + link
+    'Привет! Прежде чем (' + cat.toLowerCase() + ') — давай за пару минут сверим ожидания через нейтрального помощника, чтобы у обоих не было сюрпризов.',
+    who ? ('Для: ' + who) : '',
+    'Что стоит обсудить заранее:',
+    '— ' + st.join('\n— '),
+    desc ? ('Важно мне: ' + desc) : '',
+    'Заполни здесь: ' + link
   ].filter(Boolean).join('\n');
   document.getElementById('checkResult').textContent = msg;
   var tg = document.getElementById('checkTg');
