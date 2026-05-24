@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dolboebam.net/sitemap.xml

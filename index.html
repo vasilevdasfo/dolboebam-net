@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Долбоёбам — нет | AI-медиатор и правила взаимодействия</title>
+<meta name="description" content="Долбоёбам — нет: мем, фильтр и практичная система для нормального взаимодействия через AI, медиатора, шаблоны и правила доступа.">
+<meta property="og:title" content="Долбоёбам — нет">
+<meta property="og:description" content="Если у вас есть сложный человек, конфликт или хаос в коммуникации, не спорьте напрямую. Опишите ситуацию, получите нейтральный сценарий, шаблон или медиатора.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dolboebam.net/">
+<link rel="canonical" href="https://dolboebam.net/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23111111'/%3E%3Cpath d='M13 34h38v7H13zM13 23h38v7H13z' fill='%23f4f1e8'/%3E%3Cpath d='M43 16l7 7-29 29-7-7z' fill='%23e6402f'/%3E%3C/svg%3E">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f6f2e9;
+  --paper:#fffdf8;
+  --ink:#111;
+  --muted:#5f625d;
+  --line:#d8d1c4;
+  --red:#e6402f;
+  --green:#08785f;
+  --blue:#276aa8;
+  --yellow:#f0c84b;
+  --mint:#dff4e9;
+  --rose:#fff0ed;
+  --ice:#e8f3ff;
+  --shadow:0 22px 70px rgba(14,14,14,.12);
+}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{
+  min-width:320px;
+  overflow-x:hidden;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:Inter,Arial,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:16px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+button,input,textarea{font:inherit}
+.wrap{width:min(1160px,calc(100% - 40px));margin:0 auto}
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:20;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  min-height:64px;
+  padding:0 22px;
+  background:rgba(246,242,233,.94);
+  border-bottom:1px solid var(--ink);
+  backdrop-filter:blur(12px);
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:0;
+  font-weight:950;
+  text-transform:uppercase;
+  text-decoration:none;
+}
+.mark{
+  width:28px;
+  height:28px;
+  flex:0 0 auto;
+  display:grid;
+  place-items:center;
+  background:var(--ink);
+  color:var(--paper);
+  border-radius:6px;
+  font-size:18px;
+  line-height:1;
+}
+.brand span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nav{display:flex;align-items:center;gap:18px}
+.nav a{
+  font-size:12px;
+  font-weight:850;
+  text-decoration:none;
+  color:var(--muted);
+  white-space:nowrap;
+}
+.nav a:hover{color:var(--ink)}
+.hero{
+  min-height:calc(100svh - 64px);
+  display:grid;
+  grid-template-columns:minmax(0,1.05fr) minmax(380px,.95fr);
+  border-bottom:1px solid var(--ink);
+}
+.hero-copy{
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:74px 0 64px;
+}
+.kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  width:max-content;
+  max-width:100%;
+  padding:8px 12px;
+  border:1px solid var(--ink);
+  background:var(--yellow);
+  border-radius:8px;
+  font-size:12px;
+  font-weight:950;
+  text-transform:uppercase;
+}
+h1{
+  max-width:820px;
+  margin-top:26px;
+  font-size:clamp(50px,9vw,118px);
+  line-height:.9;
+  letter-spacing:0;
+  text-transform:uppercase;
+}
+h1 .red{color:var(--red)}
+.lead{
+  max-width:720px;
+  margin-top:24px;
+  color:#282923;
+  font-size:clamp(18px,2.1vw,23px);
+  line-height:1.55;
+}
+.lead strong{font-weight:950}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.btn{
+  min-height:50px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:0 20px;
+  border:1px solid var(--ink);
+  border-radius:8px;
+  background:var(--ink);
+  color:#fff;
+  box-shadow:5px 5px 0 rgba(17,17,17,.24);
+  font-size:13px;
+  font-weight:950;
+  text-decoration:none;
+  text-transform:uppercase;
+}
+.btn.secondary{background:var(--paper);color:var(--ink)}
+.btn.safe{background:var(--green);color:#fff}
+.hero-visual{
+  min-width:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:58px 0 58px 42px;
+}
+.console{
+  width:min(500px,100%);
+  border:1px solid var(--ink);
+  border-radius:8px;
+  background:var(--paper);
+  box-shadow:var(--shadow),10px 10px 0 var(--ink);
+  overflow:hidden;
+}
+.console-head{
+  min-height:44px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:0 14px;
+  border-bottom:1px solid var(--ink);
+  background:#111;
+  color:#fff;
+  font-size:12px;
+  font-weight:850;
+}
+.lights{display:flex;gap:6px}
+.lights i{width:10px;height:10px;border-radius:50%;background:var(--red);display:block}
+.lights i:nth-child(2){background:var(--yellow)}
+.lights i:nth-child(3){background:#48c774}
+.console-body{padding:18px;display:grid;gap:14px}
+.message{
+  padding:13px 14px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:#fff;
+  color:#222;
+  font-size:14px;
+}
+.message.bad{border-color:var(--red);background:var(--rose)}
+.message.good{border-color:var(--green);background:var(--mint)}
+.message.blue{border-color:var(--blue);background:var(--ice)}
+.flow{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:8px;
+}
+.flow-step{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  padding:12px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:#fff;
+  font-size:13px;
+}
+.num{
+  width:26px;
+  height:26px;
+  flex:0 0 auto;
+  display:grid;
+  place-items:center;
+  border-radius:6px;
+  background:var(--ink);
+  color:#fff;
+  font-size:12px;
+  font-weight:950;
+}
+section{padding:78px 0;border-bottom:1px solid var(--line)}
+.section-top{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:24px;
+  margin-bottom:28px;
+}
+.label{
+  color:var(--red);
+  font-size:12px;
+  font-weight:950;
+  text-transform:uppercase;
+}
+h2{
+  margin-top:8px;
+  font-size:clamp(34px,5vw,66px);
+  line-height:.96;
+  letter-spacing:0;
+  text-transform:uppercase;
+}
+.section-note{
+  max-width:430px;
+  color:var(--muted);
+  font-size:15px;
+}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.card{
+  min-width:0;
+  padding:20px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:var(--paper);
+}
+.card.hot{border-color:var(--red);background:var(--rose)}
+.card.clean{border-color:var(--green);background:var(--mint)}
+.card.blue{border-color:var(--blue);background:var(--ice)}
+.card h3{
+  font-size:20px;
+  line-height:1.18;
+  margin-bottom:10px;
+}
+.card p,.card li{color:#343630;font-size:15px}
+.card ul{display:grid;gap:8px;padding-left:18px}
+.split{
+  display:grid;
+  grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+  gap:22px;
+  align-items:start;
+}
+.statement{
+  padding:24px;
+  border:1px solid var(--ink);
+  border-radius:8px;
+  background:#111;
+  color:#fff;
+  box-shadow:8px 8px 0 rgba(17,17,17,.18);
+}
+.statement strong{color:var(--yellow)}
+.quote{
+  margin-top:16px;
+  padding-left:16px;
+  border-left:4px solid var(--red);
+  color:#31342f;
+}
+.client-box{
+  padding:24px;
+  border:1px solid var(--ink);
+  border-radius:8px;
+  background:var(--paper);
+  box-shadow:8px 8px 0 rgba(17,17,17,.16);
+}
+.client-box h3{font-size:28px}
+.do-not{
+  margin-top:16px;
+  padding:14px;
+  border:1px solid var(--red);
+  border-radius:8px;
+  background:var(--rose);
+  font-weight:850;
+}
+.form{
+  display:grid;
+  gap:12px;
+  margin-top:18px;
+}
+.form label{font-size:12px;font-weight:950;text-transform:uppercase;color:var(--muted)}
+.form textarea,.form input{
+  width:100%;
+  min-height:54px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:#fff;
+  padding:14px;
+  color:var(--ink);
+  resize:vertical;
+}
+.form textarea{min-height:130px}
+.copy-result{
+  min-height:70px;
+  padding:14px;
+  border:1px dashed var(--line);
+  border-radius:8px;
+  background:#fff;
+  color:#333;
+  font-size:14px;
+  white-space:pre-wrap;
+}
+.metrics{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+}
+.metric{
+  padding:18px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:var(--paper);
+}
+.metric b{display:block;font-size:clamp(28px,4vw,44px);line-height:1;color:var(--red)}
+.metric span{display:block;margin-top:8px;color:var(--muted);font-size:13px;font-weight:750}
+.timeline{
+  display:grid;
+  gap:12px;
+  border-left:3px solid var(--ink);
+  padding-left:18px;
+}
+.time-item{
+  position:relative;
+  padding:16px 18px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:var(--paper);
+}
+.time-item::before{
+  content:"";
+  position:absolute;
+  left:-28px;
+  top:20px;
+  width:16px;
+  height:16px;
+  border:3px solid var(--ink);
+  border-radius:50%;
+  background:var(--yellow);
+}
+.scenarios{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.scenario{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:12px;
+  align-items:start;
+  padding:16px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:var(--paper);
+}
+.scenario b{font-size:18px}
+.scenario p{color:var(--muted);font-size:14px}
+.footer{
+  padding:44px 0;
+  background:#111;
+  color:#fff;
+}
+.footer .wrap{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+}
+.footer a{color:#fff}
+.small{font-size:13px;color:var(--muted)}
+.footer .small{color:#c9c9c9}
+@media (max-width:980px){
+  .nav{display:none}
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-visual{padding:0 0 64px}
+  .console{box-shadow:6px 6px 0 var(--ink)}
+  .grid,.two,.split,.metrics,.scenarios{grid-template-columns:1fr}
+  .section-top{display:block}
+  .section-note{margin-top:12px}
+}
+@media (max-width:620px){
+  .wrap{width:min(100% - 28px,1160px)}
+  .topbar{padding:0 14px;min-height:58px}
+  .brand span{font-size:13px}
+  .hero-copy{padding:42px 0 38px}
+  .kicker{font-size:11px}
+  h1{font-size:clamp(44px,16vw,74px)}
+  .lead{font-size:17px}
+  .cta-row{display:grid;grid-template-columns:1fr}
+  .btn{width:100%;padding:0 14px}
+  section{padding:56px 0}
+  .card,.client-box,.statement{padding:18px}
+  .footer .wrap{display:block}
+  .footer .small{margin-top:14px}
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#top" aria-label="Долбоёбам нет">
+    <span class="mark">!</span>
+    <span>Долбоёбам — нет</span>
+  </a>
+  <nav class="nav" aria-label="Навигация">
+    <a href="#idea">Идея</a>
+    <a href="#client">Кому слать</a>
+    <a href="#etymology">Этимология</a>
+    <a href="#show">Реалити</a>
+    <a href="#video">Видео</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-copy">
+      <div class="kicker">Мир нормальных взаимодействий</div>
+      <h1>Долбоёбам <span class="red">нет</span>. Нормальным людям — правила, медиатор и AI.</h1>
+      <p class="lead">Если человек несёт хаос, спорит без фактов, срывает сроки, давит эмоциями или ломает коммуникацию, не надо воевать напрямую. Сначала ситуация проходит через <strong>AI-фильтр, шаблон, медиатора и правила доступа</strong>.</p>
+      <div class="cta-row">
+        <a class="btn safe" href="#client">У меня есть долбоёб, нужен посредник</a>
+        <a class="btn secondary" href="https://mediator.vdai.me/">Нейтральная ссылка для клиента</a>
+      </div>
+    </div>
+    <div class="wrap hero-visual" aria-label="Схема AI-медиатора">
+      <div class="console">
+        <div class="console-head">
+          <span>VDAI Mediator</span>
+          <span class="lights"><i></i><i></i><i></i></span>
+        </div>
+        <div class="console-body">
+          <div class="message bad">Проблема: человек пишет хаотично, требует срочно, не фиксирует условия.</div>
+          <div class="flow">
+            <div class="flow-step"><span class="num">1</span><span>AI принимает сырой конфликт и отделяет факты от эмоций.</span></div>
+            <div class="flow-step"><span class="num">2</span><span>Медиатор собирает правила, границы, сроки, деньги и ответственность.</span></div>
+            <div class="flow-step"><span class="num">3</span><span>На выходе: нейтральное сообщение, шаблон договора или отказ.</span></div>
+          </div>
+          <div class="message good">Результат: прямой доступ к вам получает только нормальная коммуникация.</div>
+          <div class="message blue">Публично отправляем не этот мем-сайт, а аккуратную страницу VDAI.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="idea">
+    <div class="wrap">
+      <div class="section-top">
+        <div>
+          <div class="label">Что это такое</div>
+          <h2>Не ненависть. Фильтр доступа.</h2>
+        </div>
+        <p class="section-note">Сайт собирает боль в мем, а VDAI превращает её в практику: бота, шаблоны, нейтральные страницы, медиатора и правила взаимодействия.</p>
+      </div>
+      <div class="grid">
+        <article class="card hot">
+          <h3>Проблема</h3>
+          <p>Люди часто взаимодействуют напрямую, без правил: шум, обман, срыв договорённостей, эмоциональное давление, бесконечные переписки.</p>
+        </article>
+        <article class="card clean">
+          <h3>Фильтр</h3>
+          <p>Сначала человек описывает ситуацию. AI переводит хаос в факты, вопросы, границы, цену, срок, ответственность и следующий шаг.</p>
+        </article>
+        <article class="card blue">
+          <h3>Выход</h3>
+          <p>Нормальному человеку — прямой контакт. Сложному человеку — ссылка на нейтральный процесс: форма, правила, медиатор, шаблон.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="client">
+    <div class="wrap split">
+      <div class="statement">
+        <p><strong>Важно:</strong> если у вас есть проблемный человек, не надо отправлять ему dolboebam.net. Это внутренняя вывеска и мем.</p>
+        <p class="quote">Наружу отправляется нейтральная страница: “VDAI Mediator — структурируем коммуникацию и фиксируем правила”.</p>
+      </div>
+      <div class="client-box">
+        <h3>Клиентская ссылка</h3>
+        <p>Для партнёра, подрядчика, клиента, соседа или человека в споре используйте приличную ссылку без оскорбления:</p>
+        <div class="cta-row">
+          <a class="btn safe" href="https://mediator.vdai.me/">Открыть VDAI Mediator</a>
+          <a class="btn secondary" href="https://t.me/vdavc_bot?start=mediator">Telegram-вход</a>
+        </div>
+        <div class="do-not">Формула: “давай не спорить в чате. Опиши ситуацию здесь, мы сведём её к правилам, срокам и понятному решению”.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="etymology">
+    <div class="wrap">
+      <div class="section-top">
+        <div>
+          <div class="label">Этимология</div>
+          <h2>Почему слово попало точно</h2>
+        </div>
+        <p class="section-note">Грубая лексика здесь не ради грубости. Слово описывает поведение, которое ломает нормальный ход вещей.</p>
+      </div>
+      <div class="two grid">
+        <article class="card">
+          <h3>Как пишется</h3>
+          <ul>
+            <li>Словарная форма: <strong>долбоёб</strong>.</li>
+            <li>В интернете часто пишут <strong>долбоеб</strong>, потому что букву “ё” заменяют на “е”.</li>
+            <li>В бренде: <strong>Долбоёбам — нет</strong>.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Как собрано</h3>
+          <ul>
+            <li><strong>долбить</strong>: бить, ковырять, повторять, навязчиво доставать.</li>
+            <li><strong>-о-</strong>: соединительная гласная.</li>
+            <li><strong>ёб</strong>: обсценный усилитель в русском мате.</li>
+          </ul>
+        </article>
+      </div>
+      <p class="quote">Смысл для проекта: это не про интеллект человека. Это про паттерн поведения: хаос, тупое давление, отсутствие границ, низкое качество взаимодействия. Поэтому решение не “ругаться”, а ставить интерфейс.</p>
+      <p class="small">Источник для словарной формы и разбора: Викисловарь. Публичное позиционирование проекта смягчено до темы правил, медиации и доступа.</p>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <div class="section-top">
+        <div>
+          <div class="label">Механика</div>
+          <h2>Как VDA помогает проекту</h2>
+        </div>
+        <p class="section-note">Dolboebam.net собирает внимание и боль. VDAI даёт инструмент, который можно отправить наружу без провокации.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <h3>AI-разбор</h3>
+          <p>Человек описывает ситуацию: кто что сказал, какие деньги, сроки, обещания, где сорвалось, чего хочет каждая сторона.</p>
+        </article>
+        <article class="card">
+          <h3>Шаблон</h3>
+          <p>На выходе появляется нейтральный текст: сообщение, оферта, правила чата, дедлайн, акт, отказ или список условий.</p>
+        </article>
+        <article class="card">
+          <h3>Медиатор</h3>
+          <p>Если конфликт дорогой или эмоциональный, VDA подключается как посредник: убирает шум, фиксирует договорённость, защищает время.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="show">
+    <div class="wrap">
+      <div class="section-top">
+        <div>
+          <div class="label">Реалити-шоу</div>
+          <h2>Из злости в продукт за один день</h2>
+        </div>
+        <p class="section-note">Это можно показывать как живой сериал: была боль, появился домен, сайт, нейтральная ссылка, Telegram-вход и сценарии контента.</p>
+      </div>
+      <div class="metrics">
+        <div class="metric"><b>~5.8k</b><span>символов входа от Дмитрия в этой ветке идеи</span></div>
+        <div class="metric"><b>$50+</b><span>порядок затрат на домен/корзину, точную сумму фиксируем по чеку</span></div>
+        <div class="metric"><b>1</b><span>мем-домен как верхняя воронка</span></div>
+        <div class="metric"><b>2</b><span>страницы: публичная и нейтральная клиентская</span></div>
+      </div>
+      <div class="timeline" style="margin-top:24px">
+        <div class="time-item"><strong>Раньше:</strong> конфликт жил в переписке, эмоциях, голосовых и ручном объяснении каждому человеку заново.</div>
+        <div class="time-item"><strong>Сегодня:</strong> проблема названа, домен куплен, упаковка превращена в сайт, а грубый мем отделён от нейтральной клиентской ссылки.</div>
+        <div class="time-item"><strong>Дальше:</strong> каждый конфликт становится кейсом: бот принимает ситуацию, VDAI выдаёт медиаторский сценарий, шаблон или отказ.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="video">
+    <div class="wrap">
+      <div class="section-top">
+        <div>
+          <div class="label">Контент</div>
+          <h2>10 сценариев для видео</h2>
+        </div>
+        <p class="section-note">Формат: реалити, где Дмитрий показывает не идею в вакууме, а живой путь от раздражения до работающего продукта.</p>
+      </div>
+      <div class="scenarios">
+        <article class="scenario"><span class="num">1</span><div><b>“У меня есть долбоёб”</b><p>Открытие: почему это не оскорбление, а боль про отсутствие правил доступа.</p></div></article>
+        <article class="scenario"><span class="num">2</span><div><b>“Нельзя слать мем-сайт клиенту”</b><p>Разводим два слоя: dolboebam.net для идеи, mediator.vdai.me для внешней коммуникации.</p></div></article>
+        <article class="scenario"><span class="num">3</span><div><b>“AI как санитар переписки”</b><p>Показываем, как сырой конфликт превращается в факты, условия и спокойный текст.</p></div></article>
+        <article class="scenario"><span class="num">4</span><div><b>“Сосед, подрядчик, клиент”</b><p>Три бытовых кейса: шум, сорванный срок, неоплаченный результат.</p></div></article>
+        <article class="scenario"><span class="num">5</span><div><b>“Сколько стоил запуск”</b><p>Сравнение: раньше неделя хаоса, сегодня домен + сайт + страница + воронка.</p></div></article>
+        <article class="scenario"><span class="num">6</span><div><b>“Этимология без занудства”</b><p>Почему “долбить” + обсценный усилитель так точно описывает разрушительное поведение.</p></div></article>
+        <article class="scenario"><span class="num">7</span><div><b>“Нормальные люди по нормальным правилам”</b><p>Главная философия: не строить мир против всех, а дать доступ тем, кто умеет договариваться.</p></div></article>
+        <article class="scenario"><span class="num">8</span><div><b>“Медиатор вместо скандала”</b><p>Как одна нейтральная ссылка экономит десятки сообщений и защищает отношения.</p></div></article>
+        <article class="scenario"><span class="num">9</span><div><b>“Бот принимает удар на себя”</b><p>Показываем Telegram-вход: человек пишет в бота, а не напрямую в личку.</p></div></article>
+        <article class="scenario"><span class="num">10</span><div><b>“Из мата в бизнес”</b><p>Финал серии: мем стал продуктом, продукт стал фильтром, фильтр стал сервисом.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="intake">
+    <div class="wrap split">
+      <div>
+        <div class="label">Черновик обращения</div>
+        <h2>Соберите ситуацию для медиатора</h2>
+        <p class="section-note">Форма не отправляет данные без вашего действия. Она собирает аккуратный текст, который можно вставить в Telegram-бот или отправить VDAI.</p>
+      </div>
+      <div class="client-box">
+        <form class="form" onsubmit="return false">
+          <label for="situation">Что случилось</label>
+          <textarea id="situation" placeholder="Кто участники, что обещали, где конфликт, что нужно получить на выходе"></textarea>
+          <label for="goal">Какой результат нужен</label>
+          <input id="goal" placeholder="Например: нейтральный ответ, правила чата, шаблон договора, отказ">
+          <button class="btn safe" type="button" onclick="composeMediatorText()">Собрать текст</button>
+          <div class="copy-result" id="result">Здесь появится текст для VDAI Mediator.</div>
+          <div class="cta-row">
+            <button class="btn secondary" type="button" onclick="copyMediatorText()">Скопировать</button>
+            <a class="btn" href="https://t.me/vdavc_bot?start=mediator">Открыть Telegram</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div><strong>Долбоёбам — нет.</strong><br>Нормальным людям — правила, AI и медиатор.</div>
+    <div class="small">Клиентская ссылка: <a href="https://mediator.vdai.me/">mediator.vdai.me</a></div>
+  </div>
+</footer>
+
+<script>
+function composeMediatorText(){
+  var situation = document.getElementById('situation').value.trim();
+  var goal = document.getElementById('goal').value.trim();
+  var text = [
+    'Запрос в VDAI Mediator:',
+    '',
+    'Ситуация: ' + (situation || '[описать ситуацию]'),
+    'Нужный результат: ' + (goal || '[что нужно получить]'),
+    '',
+    'Пожалуйста, отдели факты от эмоций, предложи нейтральный следующий шаг, правила взаимодействия и текст, который можно отправить второй стороне.'
+  ].join('\n');
+  document.getElementById('result').textContent = text;
+}
+async function copyMediatorText(){
+  var text = document.getElementById('result').textContent;
+  try{
+    await navigator.clipboard.writeText(text);
+    document.getElementById('result').textContent = text + '\n\nСкопировано.';
+  }catch(e){
+    document.getElementById('result').textContent = text + '\n\nСкопируйте вручную.';
+  }
+}
+</script>
+</body>
+</html>
